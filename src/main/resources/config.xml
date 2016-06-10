@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rg:regurgitator-configuration xmlns:rg="http://core.regurgitator.emarte.com"
+							   xmlns:rge="http://extensions.regurgitator.emarte.com"
+							   xmlns:rgw="http://web.extensions.regurgitator.emarte.com"
+							   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							   xsi:schemaLocation="http://core.regurgitator.emarte.com regurgitatorCore.xsd http://extensions.regurgitator.emarte.com regurgitatorExtensions.xsd http://web.extensions.regurgitator.emarte.com regurgitatorExtensionsWeb.xsd">
+	<rg:identify-session source="request-metadata:http-session-id"/>
+	<rg:decision>
+		<rg:steps>
+			<rg:sequence id="store-query-string">
+				<rg:create-parameter name="session:queryString" source="request-metadata:query-string"/>
+			</rg:sequence>
+			<rg:sequence id="result">
+				<rg:build-parameter name="result">
+					<rge:freemarker-builder file="classpath:/result.ftl" all-contexts="true"/>
+				</rg:build-parameter>
+				<rg:create-response source="result"/>
+			</rg:sequence>
+			<rgw:file-response id="file-response" source="request-metadata:path-info" path-prefix="assets"/>
+		</rg:steps>
+		<rg:rules default-step="file-response">
+			<rg:rule step="store-query-string">
+				<rg:condition source="request-metadata:path-info" contains="/b/ss/bskybeexpukshopdev/1/JS-1.4.1/"/>
+			</rg:rule>
+			<rg:rule step="result">
+				<rg:condition source="request-metadata:path-info" equals="/result"/>
+			</rg:rule>
+		</rg:rules>
+	</rg:decision>
+</rg:regurgitator-configuration>

@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <script src="http://www.sky.com/quickbuy/js/113/jquery-1.9.0.min.js"></script>
+        <script src="http://localhost:8085/data-api/v0.1.0/js/skydatalayer.min.js"></script>
+        <script src="/jquery-cookie-1.0.min.js"></script>
+        <script src="/harness.js"></script>
+        <link rel="stylesheet" type="text/css" href="harness.css">
+    </head>
+    <body id="body">
+        <h1>Data Layer Test Harness</h1>
+
+        <h2>Init Params</h2>
+
+        <table>
+            <tr><td><label for="pageload_journeyId">journeyId</label></td><td><input type="text" id="pageload_journeyId"/></td></tr>
+            <tr><td><label for="pageload_basketId">basketId</label></td><td><input type="text" id="pageload_basketId"/></td></tr>
+            <tr><td><label for="pageload_backEnd">backend</label></td><td><input type="text" id="pageload_backend"/></td></tr>
+            <tr><td><label for="pageload_skySso">skySSO</label></td><td><input type="text" id="pageload_skySSO"/></td></tr>
+            <tr><td><label for="pageload_pageId">pageID</label></td><td><input type="text" id="pageload_pageID" value="evo"/></td></tr>
+            <tr><td><label for="pageload_pageName">pageName</label></td><td><input type="text" id="pageload_pageName" value="shop:prdslt:evo"/></td></tr>
+            <tr><td><label for="pageload_geoRegion">geoRegion</label></td><td><input type="text" id="pageload_geoRegion" value="uk"/></td></tr>
+            <tr><td><label for="pageload_variant">variant</label></td><td><input type="text" id="pageload_variant" value="Quickshop/NewProductSelection"/></td></tr>
+            <tr><td><label for="pageload_contentType">contentType</label></td><td><input type="text" id="pageload_contentType" value="product selection"/></td></tr>
+            <tr><td><label for="pageload_primaryCategory">primaryCategory</label></td><td><input type="text" id="pageload_primaryCategory" value="shop"/></td></tr>
+        </table>
+
+        <p/>
+
+        <input type="submit" id="pageLoad" value="Page Load" data-tracking="false"/>
+        <input type="submit" class="siteCatCall" value="Site Cat Call" data-tracking="false" disabled/>
+
+        <h1>Link Click</h1>
+
+        <table>
+            <tr><td><label for="linkclick_module">Module</label></td><td><input type="text" id="linkclick_module"/></td></tr>
+            <tr><td><label for="linkclick_pod">Pod</label></td><td><input type="text" id="linkclick_pod"/></td></tr>
+            <tr><td><label for="linkclick_context">Context</label></td><td><input type="text" id="linkclick_context"/></td></tr>
+            <tr><td><label for="linkclick_theme">Theme</label></td><td><input type="text" id="linkclick_theme"/></td></tr>
+            <tr><td><label for="linkclick_other">Other</label></td><td><input type="text" id="linkclick_other"/></td></tr>
+            <tr><td><label for="linkclick_label">Label</label></td><td><input type="text" id="linkclick_label"/></td></tr>
+        </table>
+
+        <p/>
+
+        <div id="linkClickContainer">
+            <input type="submit" id="linkClickSetVariables" value="Set Variables" data-tracking="false"/>
+            <input type="submit" id="linkClick" value="Link Click" disabled/>
+            <input type="submit" class="siteCatCall" value="Site Cat Call" data-tracking="false" disabled/>
+        </div>
+
+        <h1>Push Event</h1>
+
+        <h2>Event Params</h2>
+
+        <table>
+            <tr><td><label for="event_eventName">eventName</label></td><td><input type="text" id="event_eventName" value="Added Item to Basket"/></td></tr>
+            <tr><td><label for="event_eventAction">eventAction</label></td><td><input type="text" id="event_eventAction" value="basketAdd"/></td></tr>
+            <tr><td><label for="event_type">type</label></td><td><input type="text" id="event_type" value="TVS9"/></td></tr>
+            <tr><td><label for="event_name">name</label></td><td><input type="text" id="event_name" value="Original"/></td></tr>
+            <tr><td><label for="event_primaryCategory">primaryCategory</label></td><td><input type="text" id="event_primaryCategory" value="basket"/></td></tr>
+        </table>
+
+        <p/>
+
+        <input type="submit" id="pushEvent" value="Push Event" data-tracking="false" disabled/>
+        <input type="submit" class="siteCatCall" value="Site Cat Call" data-tracking="false" disabled/>
+    </body>
+</html>
